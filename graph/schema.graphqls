@@ -1,0 +1,30 @@
+type User{
+  id : ID!
+  FirstName : String!
+  LastName : String!
+  Age : Int!
+  Gender : String!
+  DOB : String!
+  Mobile : Int!
+  Email : String!
+  PermanentAddress : String!
+}
+
+input NewUser{
+  FirstName : String!
+  LastName : String!
+  Age : Int!
+  Gender : String!
+  DOB : String!
+  Mobile : Int!
+  Email : String!
+  PermanentAddress : String!
+}
+
+type Mutation{
+  createUser(input:NewUser!) : User!
+}
+
+type Query{
+  fetchUser:[User!]!
+}
