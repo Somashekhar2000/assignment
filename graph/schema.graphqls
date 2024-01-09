@@ -21,8 +21,14 @@ input NewUser{
   PermanentAddress : String!
 }
 
+input updateUser{
+  Mobile : Int!
+  Email : String!
+}
+
 type Mutation{
   createUser(input:NewUser!) : User!
+  updateUser(input:updateUser!):User!
 }
 
 type Query{
