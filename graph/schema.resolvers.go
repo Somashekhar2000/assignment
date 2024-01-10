@@ -15,6 +15,11 @@ func (r *mutationResolver) CreateUser(ctx context.Context, input model.NewUser) 
 	panic(fmt.Errorf("not implemented: CreateUser - createUser"))
 }
 
+// UpdateUser is the resolver for the updateUser field.
+func (r *mutationResolver) UpdateUser(ctx context.Context, input model.UpdateUser) (*model.User, error) {
+	panic(fmt.Errorf("not implemented: UpdateUser - updateUser"))
+}
+
 // FetchUser is the resolver for the fetchUser field.
 func (r *queryResolver) FetchUser(ctx context.Context) ([]*model.User, error) {
 	panic(fmt.Errorf("not implemented: FetchUser - fetchUser"))

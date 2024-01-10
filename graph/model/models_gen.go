@@ -30,3 +30,8 @@ type User struct {
 	Email            string `json:"Email"`
 	PermanentAddress string `json:"PermanentAddress"`
 }
+
+type UpdateUser struct {
+	Mobile int    `json:"Mobile"`
+	Email  string `json:"Email"`
+}
