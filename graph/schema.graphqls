@@ -1,5 +1,5 @@
 type User{
-  id : ID!
+  id : Int!
   FirstName : String!
   LastName : String!
   Age : Int!
@@ -11,6 +11,7 @@ type User{
 }
 
 input NewUser{
+  id:Int!
   FirstName : String!
   LastName : String!
   Age : Int!
@@ -33,4 +34,5 @@ type Mutation{
 
 type Query{
   fetchUser:[User!]!
+  fetchUserByID(id:Int!):User!
 }

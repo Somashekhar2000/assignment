@@ -12,7 +12,18 @@ import (
 
 // CreateUser is the resolver for the createUser field.
 func (r *mutationResolver) CreateUser(ctx context.Context, input model.NewUser) (*model.User, error) {
-	panic(fmt.Errorf("not implemented: CreateUser - createUser"))
+	user := model.User{
+		ID:               input.ID,
+		FirstName:        input.FirstName,
+		LastName:         input.LastName,
+		Age:              input.Age,
+		Gender:           input.Gender,
+		Dob:              input.Dob,
+		Mobile:           input.Mobile,
+		Email:            input.Email,
+		PermanentAddress: input.PermanentAddress,
+	}
+	return r.S.CreateUser(user)
 }
 
 // UpdateUser is the resolver for the updateUser field.
@@ -22,7 +33,12 @@ func (r *mutationResolver) UpdateUser(ctx context.Context, input model.UpdateUse
 
 // FetchUser is the resolver for the fetchUser field.
 func (r *queryResolver) FetchUser(ctx context.Context) ([]*model.User, error) {
-	panic(fmt.Errorf("not implemented: FetchUser - fetchUser"))
+	return r.S.GetAllUser()
+}
+
+// FetchUserByID is the resolver for the fetchUserByID field.
+func (r *queryResolver) FetchUserByID(ctx context.Context, id int) (*model.User, error) {
+	return r.S.GetUserByID(id)
 }
 
 // Mutation returns MutationResolver implementation.

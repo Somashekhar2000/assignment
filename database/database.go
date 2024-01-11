@@ -1,7 +1,7 @@
 package database
 
 import (
-	"assignment/graph/model"
+	mymodel "assignment/models"
 	"context"
 	"time"
 
@@ -37,7 +37,7 @@ func Connection() (*gorm.DB, error) {
 		return nil, err
 	}
 
-	err = db.Migrator().AutoMigrate(&model.User{})
+	err = db.Migrator().AutoMigrate(&mymodel.User{})
 	if err != nil {
 		return nil, err
 	}

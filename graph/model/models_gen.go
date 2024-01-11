@@ -6,6 +6,7 @@ type Mutation struct {
 }
 
 type NewUser struct {
+	ID               int    `json:"id"`
 	FirstName        string `json:"FirstName"`
 	LastName         string `json:"LastName"`
 	Age              int    `json:"Age"`
@@ -20,7 +21,7 @@ type Query struct {
 }
 
 type User struct {
-	ID               string `json:"id"`
+	ID               int    `json:"id"`
 	FirstName        string `json:"FirstName"`
 	LastName         string `json:"LastName"`
 	Age              int    `json:"Age"`
