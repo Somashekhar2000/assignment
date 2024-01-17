@@ -3105,13 +3105,20 @@ func (ec *executionContext) unmarshalInputupdateUser(ctx context.Context, obj in
 		asMap[k] = v
 	}
 
-	fieldsInOrder := [...]string{"Mobile", "Email"}
+	fieldsInOrder := [...]string{"id", "Mobile", "Email"}
 	for _, k := range fieldsInOrder {
 		v, ok := asMap[k]
 		if !ok {
 			continue
 		}
 		switch k {
+		case "id":
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("id"))
+			data, err := ec.unmarshalNInt2int(ctx, v)
+			if err != nil {
+				return it, err
+			}
+			it.ID = data
 		case "Mobile":
 			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("Mobile"))
 			data, err := ec.unmarshalNInt2int(ctx, v)

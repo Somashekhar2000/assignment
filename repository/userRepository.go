@@ -26,11 +26,18 @@ func (r *Repo) FetchUser() ([]mymodel.User, error) {
 
 func (r *Repo) FetchUserByID(id int) (mymodel.User, error) {
 	var user mymodel.User
-
 	tx := r.db.Where("id = ?", id)
 	err := tx.Find(&user).Error
 	if err != nil {
 		return mymodel.User{}, nil
 	}
 	return user, nil
+}
+
+func (r *Repo) UpdateUser(userData mymodel.User) error {
+	err := r.db.Save(userData).Error
+	if err != nil {
+		return err
+	}
+	return nil
 }

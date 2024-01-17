@@ -23,6 +23,7 @@ input NewUser{
 }
 
 input updateUser{
+  id:Int!
   Mobile : Int!
   Email : String!
 }

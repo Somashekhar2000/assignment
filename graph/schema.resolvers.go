@@ -7,7 +7,6 @@ package graph
 import (
 	"assignment/graph/model"
 	"context"
-	"fmt"
 )
 
 // CreateUser is the resolver for the createUser field.
@@ -28,7 +27,7 @@ func (r *mutationResolver) CreateUser(ctx context.Context, input model.NewUser) 
 
 // UpdateUser is the resolver for the updateUser field.
 func (r *mutationResolver) UpdateUser(ctx context.Context, input model.UpdateUser) (*model.User, error) {
-	panic(fmt.Errorf("not implemented: UpdateUser - updateUser"))
+	return r.S.UpdateUser(input)
 }
 
 // FetchUser is the resolver for the fetchUser field.

@@ -13,6 +13,7 @@ type Services interface {
 	CreateUser(userDetail model.User) (*model.User, error)
 	GetAllUser() ([]*model.User, error)
 	GetUserByID(id int) (*model.User, error)
+	UpdateUser(userDetail model.UpdateUser) (*model.User, error)
 }
 
 func NewService(r repository.Repository) (Services, error) {

@@ -81,3 +81,29 @@ func (s *Service) GetUserByID(id int) (*model.User, error) {
 	}
 	return &userDetail, nil
 }
+
+func (s *Service) UpdateUser(userDetail model.UpdateUser) (*model.User, error) {
+	userData, err := s.Repo.FetchUserByID(userDetail.ID)
+	if err != nil {
+		return nil, err
+	}
+
+	userData.Mobile = userDetail.Mobile
+	userData.Email = userDetail.Email
+
+	err = s.Repo.UpdateUser(userData)
+	if err != nil {
+		return nil, err
+	}
+	return &model.User{
+		ID:               int(userData.ID),
+		FirstName:        userData.FirstName,
+		LastName:         userData.LastName,
+		Age:              userData.Age,
+		Gender:           userData.Gender,
+		Dob:              userData.Dob,
+		Mobile:           userData.Mobile,
+		Email:            userData.Email,
+		PermanentAddress: userData.PermanentAddress,
+	}, nil
+}

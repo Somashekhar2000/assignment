@@ -33,6 +33,7 @@ type User struct {
 }
 
 type UpdateUser struct {
+	ID     int    `json:"id"`
 	Mobile int    `json:"Mobile"`
 	Email  string `json:"Email"`
 }
