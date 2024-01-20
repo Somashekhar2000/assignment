@@ -2,13 +2,21 @@ package service
 
 import (
 	"assignment/graph/model"
+	"assignment/logger"
 	mymodel "assignment/models"
+	"assignment/validation"
 	"errors"
 )
 
 func (s Service) CreateUser(userDetail model.User) (*model.User, error) {
-	if userDetail.Age < 0 {
-		return nil, errors.New("invalid age")
+	ok := validation.IsValidMobileNumber(userDetail.Mobile)
+	if !ok {
+		logger.ErrorLogger.Println("Inavlid mobile number for user user id : ", userDetail.ID)
+		return nil, errors.New("invalid mobile number")
+	}
+	ok = validation.AgeValidation(userDetail.Age)
+	if !ok {
+		return nil, errors.New("invalid user age")
 	}
 	usersDetails := mymodel.User{
 		FirstName:        userDetail.FirstName,
@@ -83,6 +91,10 @@ func (s *Service) GetUserByID(id int) (*model.User, error) {
 }
 
 func (s *Service) UpdateUser(userDetail model.UpdateUser) (*model.User, error) {
+	ok := validation.IsValidMobileNumber(userDetail.Mobile)
+	if !ok {
+		return nil, errors.New("invalid mobile number")
+	}
 	userData, err := s.Repo.FetchUserByID(userDetail.ID)
 	if err != nil {
 		return nil, err

@@ -1,0 +1,6 @@
+INFO: 2024/01/20 12:45:50 schema.resolvers.go:15: gql request for created user received
+INFO: 2024/01/20 12:45:50 userRepository.go:9: executing create user repository
+INFO: 2024/01/20 12:45:55 schema.resolvers.go:15: gql request for created user received
+INFO: 2024/01/20 12:45:55 userRepository.go:9: executing create user repository
+INFO: 2024/01/20 12:46:01 schema.resolvers.go:15: gql request for created user received
+ERROR: 2024/01/20 12:46:01 userService.go:14: Inavlid mobile number for user user id :  2

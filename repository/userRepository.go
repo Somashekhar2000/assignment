@@ -1,15 +1,15 @@
 package repository
 
 import (
+	"assignment/logger"
 	mymodel "assignment/models"
-
-	"github.com/rs/zerolog/log"
 )
 
 func (r *Repo) CreateUser(userData mymodel.User) (*mymodel.User, error) {
+	logger.InfoLogger.Println("executing create user repository")
 	userDetail := r.db.Create(&userData)
 	if userDetail.Error != nil {
-		log.Info().Err(userDetail.Error).Send()
+		logger.ErrorLogger.Println("error while creating user : ", userDetail.Error)
 		return nil, userDetail.Error
 	}
 	return &userData, nil

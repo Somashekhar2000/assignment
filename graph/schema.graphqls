@@ -2,10 +2,10 @@ type User{
   id : Int!
   FirstName : String!
   LastName : String!
-  Age : Int!
+  Age : String!
   Gender : String!
   DOB : String!
-  Mobile : Int!
+  Mobile : String!
   Email : String!
   PermanentAddress : String!
 }
@@ -14,17 +14,17 @@ input NewUser{
   id:Int!
   FirstName : String!
   LastName : String!
-  Age : Int!
+  Age : String!
   Gender : String!
   DOB : String!
-  Mobile : Int!
+  Mobile : String!
   Email : String!
   PermanentAddress : String!
 }
 
 input updateUser{
   id:Int!
-  Mobile : Int!
+  Mobile : String!
   Email : String!
 }
 

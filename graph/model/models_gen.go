@@ -9,10 +9,10 @@ type NewUser struct {
 	ID               int    `json:"id"`
 	FirstName        string `json:"FirstName"`
 	LastName         string `json:"LastName"`
-	Age              int    `json:"Age"`
+	Age              string `json:"Age"`
 	Gender           string `json:"Gender"`
 	Dob              string `json:"DOB"`
-	Mobile           int    `json:"Mobile"`
+	Mobile           string `json:"Mobile"`
 	Email            string `json:"Email"`
 	PermanentAddress string `json:"PermanentAddress"`
 }
@@ -24,16 +24,16 @@ type User struct {
 	ID               int    `json:"id"`
 	FirstName        string `json:"FirstName"`
 	LastName         string `json:"LastName"`
-	Age              int    `json:"Age"`
+	Age              string `json:"Age"`
 	Gender           string `json:"Gender"`
 	Dob              string `json:"DOB"`
-	Mobile           int    `json:"Mobile"`
+	Mobile           string `json:"Mobile"`
 	Email            string `json:"Email"`
 	PermanentAddress string `json:"PermanentAddress"`
 }
 
 type UpdateUser struct {
 	ID     int    `json:"id"`
-	Mobile int    `json:"Mobile"`
+	Mobile string `json:"Mobile"`
 	Email  string `json:"Email"`
 }

@@ -6,11 +6,13 @@ package graph
 
 import (
 	"assignment/graph/model"
+	"assignment/logger"
 	"context"
 )
 
 // CreateUser is the resolver for the createUser field.
 func (r *mutationResolver) CreateUser(ctx context.Context, input model.NewUser) (*model.User, error) {
+	logger.InfoLogger.Println("gql request for created user received")
 	user := model.User{
 		ID:               input.ID,
 		FirstName:        input.FirstName,
